@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Technical Documentation</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mathematical Statistics</title>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            jax: ["input/TeX", "output/HTML-CSS"],
+            extensions: ["tex2jax.js"],
+            "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+            tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], displayMath: [ ["$$","$$"], ["\\[", "\\]"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno" },
+            TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } } },
+            messageStyle: "none"
+        });
+    </script>    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css">
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>
+        <h1>\(\LaTeX\)</h1>
+      </header>
+      <a href="#latex_math" class="nav-link">Latex Math</a>
+      <a href="#latex_math_in_html" class="nav-link">Latex Math in HTML</a>
+      <a href="#latex_figures" class="nav-link">Latex Figures</a>
+      <a href="#latex_useful_packages" class="nav-link">Latex Useful Packages</a>
+      <a href="#latex_languages" class="nav-link">Latex Languages</a>
+      <a href="#latex_tables" class="nav-link">Latex Tables</a>
+    </nav>
+    <main id="main-doc">
+      <section id="latex_math" class="main-section">
+        <header>
+          <h2>LaTeX Math</h2>
+        </header>
+        <p>Math in LaTeX is very powerful and useful, asit produces very neat equations in a way that's known to anyone who has read a scientific paper, book or article.</p>
+        <p>Math code in LaTeX works out of the box so to speak, although several packages exist to facilitate writing certain things.</p>
+        <p>The code for writing math is best shown by an example:</p>
+        <p>In probability theory, a normal (or Gaussian or Gauss or Laplace–Gauss) distribution is a type of continuous probability distribution for a real-valued random variable. The general form of its probability density function is</p>
+        <p>
+        $$ f(x) = \frac{1}{\sigma\sqrt{2\pi}}\cdot e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^{2}} $$
+        </p>
+        <p>The code for the equation above is as follows: </p>
+        <p><code>\begin{equation*} <br> f(x) = \frac{1}{\sigma\sqrt{2\pi}}\cdot e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^{2}} <br> \end{equation*}</code></p>
+        <ul>
+            <li>Omitting the * will give the equation a reference number</li>
+            <li>Greek symbols and letters are readily available</li>
+            <li>Math can also be written in-line by enclosing the expression in <code>\( \)</code> or <code>$ $</code></li>
+        </ul>
+      </section>
+      <section id="latex_math_in_html" class="main-section">
+        <header>
+          <h2>LaTeX Math in HTML</h2>
+        </header>
+        <p>In order to write LaTeX math in html, one suggestions is to use MathJax.
+        <ul>
+          <li>Begin by inserting the appropiate script dependencies</li>
+          <li>Start writing LaTeX inside your html-document</li>
+        </ul>
+      </section>
+      <section id="latex_figures" class="main-section">
+        <header>
+          <h2>LaTeX Figures</h2>
+        </header>
+        <p>To include figures into your LaTeX-document, use the following syntax:
+        <p><code>\begin{figure}[htpb] <br> \include[width=1\linewidth]{path-to-png} <br> \caption{Some caption}\label{fig:aritraryname} <br> \end{figure} </code></p>
+        <ul>
+            <li>To center the figure (incase <code>\linewidth</code> is prepended with something $<1$) add <code>\centering</code> just after <code>\begin{figure}[htpb]</code></li>
+            <li>Usually you should follow LaTeX placement attemps of the figure (somewhat controlled by <code>[htpb]</code>) but as a last resort you can try to force the figure to where you wish to have it by just having <code>[h!]</code>.</li>
+        </ul>
+        <p></p>
+      </section>
+      <section id="latex_useful_packages" class="main-section">
+        <header>
+          <h2>LaTeX Useful Packages</h2>
+        </header>
+        <p>Some useful packages on the top of my head are:</p>
+        <ul>
+          <li>subfigure</li>
+          <li>amsmath</li>
+          <li>longtable</li>
+          <li>graphicx</li>
+          <li>hyperref</li>
+          <li>fancyhdr</li>
+          <li>and many, many more</li>
+        </ul>
+      </section>
+      <section id="latex_languages" class="main-section">
+        <header>
+          <h2>LaTeX Languages</h2>
+        </header>
+        <p>LaTeX is out of the box adapted for the English language. In order to have for example Swedish, some modifications are needed to the preamble:</p>
+        <ul>
+            <li><code>\usepackage[T1]{fontenc}</code></li>
+            <li><code>\usepackage[utf8]{inputenc}</code></li>
+            <li><code>\usepackage[swedish]{babel}</code></li>
+        </ul>
+        <p>At least this is what works for me. I also sometimes find it important to make sure that whatever .tex-file I'm writing in is encoded as UTF-8.</p>
+      </section>
+      <section id="latex_tables" class="main-section">
+        <header>
+          <h2>LaTeX Tables</h2>
+        </header>
+        <p>My preferred what of writing tables now days is using <code>longtable</code>.</p>
+        <p>An example: </p>
+        <pre>
+            \begin{lontable}{l l}
+            \caption{a table}\label{tab:mytbl} \\ \toprule
+                \textbf{TH} & \textbf{TH} \\ \midrule
+                \endfirsthead
+
+                \texbf{TH} & \textbf{TH} \\ \bottomrule
+                \endlastfoot
+
+                \caption[]{-continuation-} \\ \toprule
+                \textbf{TH} & \textbf{TH} \\ \midrule
+                \endhead
+
+                \multicolumn{2}{c}{-continues on next page-}\\ \bottomrule
+                \endfoot
+
+                some table content & some more table content \\ \midrule
+
+            \end{longtable}
+        </pre>
+      </section>
+    </main>
+  </body>
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
